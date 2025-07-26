@@ -4,14 +4,19 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "dev-prod-db": "astro dev --remote",
+    "build": "astro build --remote",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "db:push": "astro db push --remote",
+    "db:reset":"astro db push --remote --force-reset"
   },
   "dependencies": {
+    "@astrojs/db": "^0.15.0",
     "@astrojs/react": "^4.3.0",
     "@astrojs/vercel": "^8.2.3",
     "@clerk/astro": "^2.10.11",
+    "@paralleldrive/cuid2": "^2.2.2",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "astro": "^5.12.3",

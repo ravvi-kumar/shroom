@@ -6,9 +6,11 @@ import react from "@astrojs/react";
 
 import vercel from "@astrojs/vercel";
 
+import db from "@astrojs/db";
+
 // https://astro.build/config
 export default defineConfig({
-    integrations:[clerk(), react()],
+    integrations:[clerk(), react(), db()],
     adapter: vercel(),
     output: "server",
     server:{
