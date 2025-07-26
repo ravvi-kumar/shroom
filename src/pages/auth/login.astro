@@ -1,0 +1,11 @@
+---
+import { SignInButton } from "@clerk/astro/components";
+const { userId } = Astro.locals.auth();
+
+if (userId) {
+    return Astro.redirect("/dashboard/me");
+}
+---
+<div>
+    <SignInButton mode="modal" />
+</div>
