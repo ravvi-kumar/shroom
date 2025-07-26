@@ -1,13 +1,18 @@
 ---
-import { Username } from '../components/Header'
-import UserInfo from '../components/UserInfo.astro'
-import Layout from '../layouts/Layout.astro'
+import { Username } from "@/components/Header";
+import UserInfo from "@/components/UserInfo.astro";
+import Layout from "@/layouts/Layout.astro";
+
+const { userId } = Astro.locals.auth();
+
+if (userId) {
+  return Astro.redirect("/dashboard");
+}
 ---
 
 <!-- This is going to be the homepage of the app -->
-
 <Layout title="Clerk + Astro">
   <p>Sign in to try Clerk out!</p>
-  <Username client:load/>
-  <UserInfo/>
+  <Username client:load />
+  <UserInfo />
 </Layout>

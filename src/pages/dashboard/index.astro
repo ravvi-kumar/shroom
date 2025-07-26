@@ -1,0 +1,18 @@
+---
+import { getDBUser } from "@/queries/user";
+
+const { userId } = Astro.locals.auth();
+
+if (!userId) {
+    return Astro.redirect("/auth/login");
+}
+
+const dbUser = await getDBUser(userId);
+
+if (!dbUser?.linkedinUrl) {
+    return Astro.redirect("/onboarding");
+}
+---
+
+<p>Welcome, {dbUser?.name}</p>
+<p>LinkedIn: {dbUser?.linkedinUrl}</p>
