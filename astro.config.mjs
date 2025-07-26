@@ -11,4 +11,7 @@ export default defineConfig({
     integrations:[clerk(), react()],
     adapter: vercel(),
     output: "server",
+    server:{
+        allowedHosts:["buck-refined-garfish.ngrok-free.app"]
+    }
 });
